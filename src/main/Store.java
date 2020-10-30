@@ -1,3 +1,4 @@
+package main;
 import java.util.*;
 
 public class Store {
@@ -7,7 +8,7 @@ public class Store {
 	public ArrayList<Application> appList;
 	public ArrayList<Application> temp;
 	
-	public Store(){
+	public Store() {
 		appList = new ArrayList<Application>();
 		userMap = new HashMap<String, String>();
 		temp = new ArrayList<Application>();

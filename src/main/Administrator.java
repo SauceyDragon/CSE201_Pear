@@ -1,3 +1,4 @@
+package main;
 
 public class Administrator extends Moderator {
 		
