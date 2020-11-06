@@ -1,4 +1,5 @@
 package main;
+import java.util.Date;
 
 public class User extends Guest {
 	
@@ -74,6 +75,11 @@ public class User extends Guest {
 	public Comment comment(String comment) {
 		return new Comment(comment, userName);
 	}
+	
+//	public Request submitRequest(String applicationName) {
+//		
+//		return new Request(applicationName, new Date().toString(), userName);
+//	}
 
 	
 

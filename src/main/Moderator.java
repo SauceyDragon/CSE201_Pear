@@ -1,14 +1,24 @@
 package main;
 
-public class Moderator extends User {
+public class Moderator {
 	
-	public Moderator(String username, String password, String email) {
-		super(username,password,email);
-		this.username = username;
+	private int id;
+    private String userName;
+    private String password;
+    private boolean active;
+    private String roles;
+    private String email;
+    
+    public Moderator(int id, String userName, String password, boolean active, String roles, String email) {
+		super();
+		this.id = id;
+		this.userName = userName;
 		this.password = password;
+		this.active = active;
+		this.roles = roles;
 		this.email = email;
-		this.ID = 1;
 	}
+	
 	
 	public boolean deleteComment(Comment c) {
 		return false;

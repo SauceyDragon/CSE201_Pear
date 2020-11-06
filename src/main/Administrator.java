@@ -1,20 +1,28 @@
 package main;
 
-public class Administrator extends Moderator {
-		
-	public Administrator(String username, String password, String email) {
-		super(username,password,email);
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.ID = 2;
+public class Administrator {
 	
+	private int id;
+    private String userName;
+    private String password;
+    private boolean active;
+    private String roles;
+    private String email;
+	
+	public Administrator(int id, String userName, String password, boolean active, String roles, String email) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.password = password;
+		this.active = active;
+		this.roles = roles;
+		this.email = email;
 	}
 	
-	public boolean approveForm(Request r) {
+	public boolean approveForm(Request request) {
 		return false;
 	}
-	public boolean rejectForm(Request r) {
+	public boolean rejectForm(Request request) {
 		return false;
 		
 	}
