@@ -25,6 +25,7 @@ public class PearWindow {
 	private JFrame frameSortZA;
 	private JFrame frameLog;
 	private JFrame frameSortAZ;
+	private JFrame frameFilter;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField txtEnterPrice;
@@ -94,6 +95,14 @@ public class PearWindow {
 		frameSortAZ.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameSortAZ.getContentPane().setLayout(null);
 		
+		frameFilter = new JFrame();
+		frameFilter.getContentPane().setBackground(Color.WHITE);
+		frameFilter.setBounds(100, 100, 700, 500);
+		frameFilter.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frameFilter.getContentPane().setLayout(null);
+		
+
+		
 		home(s,arrList);
 		//login();
 		//view(s,arrList,0);
@@ -101,7 +110,171 @@ public class PearWindow {
 		
 		
 	}
-	public void filter() {
+	public void filter(Store s, double price) {
+		s.filter(price);
+		ArrayList<Application> arrList = s.temp;
+		window.frame.setVisible(false);
+		window.frameLog.setVisible(false);
+		window.frameView.setVisible(false);
+		window.frameSortZA.setVisible(false);
+		window.frameSortAZ.setVisible(false);
+		window.frameFilter.setVisible(true);
+		
+		
+		JLabel lblNewLabel = new JLabel("Pear Store");
+		lblNewLabel.setFont(new Font("Apple Braille", Font.BOLD, 21));
+		//lblNewLabel.setFont(new Font());
+		lblNewLabel.setBounds(6, 6, 186, 47);
+		frameFilter.getContentPane().add(lblNewLabel);
+		
+		if(arrList.size() >= 3) {
+			
+			JLabel lblNewLabel_3 = new JLabel(s.appList.get(2).getName());
+			lblNewLabel_3.setFont(new Font("Apple Braille", Font.PLAIN, 15));
+			lblNewLabel_3.setBounds(60, 270, 85, 16);
+			frameFilter.getContentPane().add(lblNewLabel_3);
+
+			
+			JLabel lblNewLabel_6 = new JLabel(s.appList.get(2).getDescription());
+			lblNewLabel_6.setFont(new Font("Apple Braille", Font.PLAIN, 13));
+			lblNewLabel_6.setBounds(110, 298, 395, 16);
+			frameFilter.getContentPane().add(lblNewLabel_6);
+			
+
+			JButton btnNewButton_2 = new JButton("View");
+			btnNewButton_2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					view(s,arrList, 2);
+				}
+			});
+			btnNewButton_2.setFont(new Font("Apple Braille", Font.PLAIN, 13));
+			btnNewButton_2.setBounds(485, 293, 117, 29);
+			frameFilter.getContentPane().add(btnNewButton_2);
+			
+			
+			JPanel panel_2 = new JPanel();
+			panel_2.setBounds(35, 252, 580, 70);
+			frameFilter.getContentPane().add(panel_2);
+		}
+		if(arrList.size() >= 2) {
+			JLabel lblNewLabel_2 = new JLabel(s.appList.get(1).getName());
+			lblNewLabel_2.setFont(new Font("Apple Braille", Font.PLAIN, 15));
+			lblNewLabel_2.setBounds(60, 180, 85, 16);
+			frameFilter.getContentPane().add(lblNewLabel_2);
+			
+			JLabel lblNewLabel_5 = new JLabel(s.appList.get(1).getDescription());
+			lblNewLabel_5.setFont(new Font("Apple Braille", Font.PLAIN, 13));
+			lblNewLabel_5.setBounds(110, 208, 395, 16);
+			frameFilter.getContentPane().add(lblNewLabel_5);
+			
+
+			JButton btnNewButton_1 = new JButton("View");
+			btnNewButton_1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					view(s,arrList, 1);
+				}
+			});
+			btnNewButton_1.setFont(new Font("Apple Braille", Font.PLAIN, 13));
+			btnNewButton_1.setBounds(485, 203, 117, 29);
+			frameFilter.getContentPane().add(btnNewButton_1);
+			
+			
+			JPanel panel_1 = new JPanel();
+			panel_1.setBounds(35, 162, 580, 70);
+			frameFilter.getContentPane().add(panel_1);
+			
+		}
+		if (arrList.size() >= 1) {
+		JLabel lblNewLabel_1 = new JLabel(s.appList.get(0).getName());
+		lblNewLabel_1.setFont(new Font("Apple Braille", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(60, 90, 85, 16);
+		frameFilter.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_4 = new JLabel(s.appList.get(0).getDescription());
+		lblNewLabel_4.setFont(new Font("Apple Braille", Font.PLAIN, 13));
+		lblNewLabel_4.setBounds(110, 118, 395, 16);
+		frameFilter.getContentPane().add(lblNewLabel_4);
+		
+		JButton btnNewButton = new JButton("View");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				view(s,arrList, 0);
+			}
+		});
+		btnNewButton.setFont(new Font("Apple Braille", Font.PLAIN, 13));
+		btnNewButton.setBounds(485, 113, 117, 29);
+		frameFilter.getContentPane().add(btnNewButton);
+		
+		
+		JPanel panel = new JPanel();
+		panel.setForeground(Color.LIGHT_GRAY);
+		panel.setBounds(35, 78, 580, 70);
+		frameFilter.getContentPane().add(panel);
+		
+		
+		}
+		
+
+		
+
+		JButton btnNewButton_3 = new JButton("Login");
+		btnNewButton_3.setFont(new Font("Apple Braille", Font.PLAIN, 13));
+		btnNewButton_3.setBounds(485, 18, 117, 29);
+		frameFilter.getContentPane().add(btnNewButton_3);
+		
+		
+		JButton btnNewButton_4 = new JButton("Create Account");
+		btnNewButton_4.setBounds(343, 16, 130, 29);
+		frameFilter.getContentPane().add(btnNewButton_4);
+		
+
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("A to Z");
+		rdbtnNewRadioButton.setBounds(184, 360, 97, 23);
+		frameFilter.getContentPane().add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Z to A");
+		rdbtnNewRadioButton_1.setBounds(289, 360, 85, 23);
+		frameFilter.getContentPane().add(rdbtnNewRadioButton_1);
+		
+		ButtonGroup sortSelect = new ButtonGroup();
+		sortSelect.add(rdbtnNewRadioButton);
+		sortSelect.add(rdbtnNewRadioButton_1);
+		
+		JButton btnNewButton_5 = new JButton("Sort");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton.isSelected()) {
+					sortSelect.clearSelection();
+					sortAZ(s,arrList);
+				}
+				if(rdbtnNewRadioButton_1.isSelected()) {
+					sortSelect.clearSelection();
+					sortZA(s,arrList);
+				}
+			}
+		});
+		btnNewButton_5.setBounds(388, 359, 117, 29);
+		frameFilter.getContentPane().add(btnNewButton_5);
+		
+		
+		
+		txtEnterPrice = new JTextField();
+		txtEnterPrice.setText("Enter Price (i.e. 0.00)");
+		txtEnterPrice.setBounds(184, 410, 141, 26);
+		frameFilter.getContentPane().add(txtEnterPrice);
+		txtEnterPrice.setColumns(10);
+		
+		JButton btnNewButton_6 = new JButton("Filter");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double price = Double.parseDouble(txtEnterPrice.getText());
+				filter(s, price);
+			}
+		});
+		btnNewButton_6.setBounds(388, 410, 117, 29);
+		frameFilter.getContentPane().add(btnNewButton_6);
+		
+		
 		
 	}
 	public void sortAZ(Store s,ArrayList<Application> arrList) {
@@ -111,6 +284,7 @@ public class PearWindow {
 		window.frameView.setVisible(false);
 		window.frameSortZA.setVisible(false);
 		window.frameSortAZ.setVisible(true);
+		window.frameFilter.setVisible(false);
 		
 
 		JLabel lblNewLabel = new JLabel("Pear Store");
@@ -238,6 +412,12 @@ public class PearWindow {
 		txtEnterPrice.setColumns(10);
 		
 		JButton btnNewButton_6 = new JButton("Filter");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double price = Double.parseDouble(txtEnterPrice.getText());
+				filter(s, price);
+			}
+		});
 		btnNewButton_6.setBounds(388, 410, 117, 29);
 		frameSortAZ.getContentPane().add(btnNewButton_6);
 		
@@ -251,6 +431,7 @@ public class PearWindow {
 		window.frameView.setVisible(false);
 		window.frameSortZA.setVisible(true);
 		window.frameSortAZ.setVisible(false);
+		window.frameFilter.setVisible(false);
 		
 
 		JLabel lblNewLabel = new JLabel("Pear Store");
@@ -378,6 +559,12 @@ public class PearWindow {
 		txtEnterPrice.setColumns(10);
 		
 		JButton btnNewButton_6 = new JButton("Filter");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double price = Double.parseDouble(txtEnterPrice.getText());
+				filter(s, price);
+			}
+		});
 		btnNewButton_6.setBounds(388, 410, 117, 29);
 		frameSortZA.getContentPane().add(btnNewButton_6);
 		
@@ -390,6 +577,7 @@ public class PearWindow {
 		window.frameView.setVisible(true);
 		window.frameSortZA.setVisible(false);
 		window.frameSortAZ.setVisible(false);
+		window.frameFilter.setVisible(false);
 		
 		
 		JLabel lblNewLabel = new JLabel("Pear Store");
@@ -686,6 +874,12 @@ public class PearWindow {
 		txtEnterPrice.setColumns(10);
 		
 		JButton btnNewButton_6 = new JButton("Filter");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double price = Double.parseDouble(txtEnterPrice.getText());
+				filter(s, price);
+			}
+		});
 		btnNewButton_6.setBounds(388, 410, 117, 29);
 		frame.getContentPane().add(btnNewButton_6);
 		
