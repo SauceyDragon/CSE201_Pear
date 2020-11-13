@@ -1,3 +1,8 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+
+#Ignore class files and other Java components
+*.class
+build/
+dist/
