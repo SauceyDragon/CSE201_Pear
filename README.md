@@ -10,6 +10,29 @@ After cloning the repository, running the ANT build script should automatically 
 - A new directory structure is added for future testing and for packaging all of the software resources pre-compilation
 - Compilation and packaging of the corresponding JAR files is followed therafter
 
+```xml
+	<target name="clean">
+		<delete dir="bin" />
+		<delete dir="dist" />
+		<delete dir="test" />
+		<echo message="${ant.project.name}: Directory structure cleaned" />
+	</target>
+	
+	 <target name="init" depends="clean">
+	 	<echo message="${ant.project.name}: ${ant.file}"/>
+	 	<mkdir dir="bin/main" />
+	 	<mkdir dir="dist" />
+	 	<mkdir dir="test" />
+	 	<echo message="${ant.project.name}: Directory structure added" />
+	  </target>
+		
+	  <target name="compile" depends="init" description="Compile Java code">
+	    <javac srcdir="src/main" destdir="bin" includeantruntime="false" />
+		  //JUnit compilation can be added here or in another target
+	  	<echo message="${ant.project.name}: Compilation completed"/>
+	  </target>
+```
+
 To add dependencies with ANT:
 
 ```xml
