@@ -4,7 +4,7 @@ This GitHub repository is an in-progress application Repository showing a filter
 
 ## Developer Documentation
 
-After cloning the repository, running the ANT build script should automatically clean, compile and build the JAR file for the program. If you do not want to clone it, you can download it as a ZIP file, import it into your IDE, and run the build script. This clean, compile, and overall correctly build the project. 
+After cloning the repository, running the ANT build script should automatically clean, compile and build the JAR file for the program. If you do not want to clone it, you can download it as a ZIP file, import it into your IDE, and run the build script. This will clean, compile, and overall correctly build the project. 
 
 - Cleaning the file directory fixes any classpath issues
 - A new directory structure is added for future testing and for packaging all of the software resources pre-compilation
@@ -52,7 +52,7 @@ Users can currently run the main driver (PearWindow, which is shown below and sh
 public static void main(String[] args) {
 		Store pear = new Store();
     
-    \\Application load
+    \\Application List load - varies between iterations
     
     EventQueue.invokeLater(new Runnable() {
 			public void run() {
