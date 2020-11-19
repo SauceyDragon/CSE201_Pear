@@ -1,23 +1,25 @@
 
-public class User extends Guest {
+public class User{
 	 
 	public String username;
 	public String password;
-	public String email;
+	public int ID;
+
 	
-	public User(String username, String password, String email) {
+	public User() {
+		this.username = "";
+		this.password = "";
+		this.ID = -1;
+	}
+	
+	public User(String username, String password, int ID) {
 		this.username = username;
 		this.password = password;
-		this.email = email;
-		this.ID = 1;
+		this.ID = ID;
 	}
 	
-	public boolean requestForm(Application a) {
-		return false;
-	}
-	
-	public boolean comment() {
-		return false;
+	public void setID(int ID) {
+		this.ID = ID;
 	}
 	
 
