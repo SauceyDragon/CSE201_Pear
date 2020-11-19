@@ -1,6 +1,5 @@
-
 public class Application {
-		
+
     private String name;
     private String description;
     private String organization;
@@ -8,6 +7,8 @@ public class Application {
     private String version;
     private String link;
     private double price;
+    private LinkedList comment;
+    
 
     public Application(String name, String description, String organization,
                        String platform, String version, String link, double price) {
@@ -18,8 +19,13 @@ public class Application {
         this.version = version;
         this.link = link;
         this.price = price;
+        comment = new LinkedList();
+        comment.insertLast(name + " Comment Board");
     }
 
+    public LinkedList getCommentList() {
+    	return comment;
+    }
     public String getName() {
         return name;
     }
