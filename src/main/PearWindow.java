@@ -31,7 +31,7 @@ public class PearWindow {
 	private JFrame frame;
 	private JFrame frameView;
 	private JFrame frameSortZA;
-	private JFrame frameLog;
+	public JFrame frameLog;
 	private JFrame frameSortAZ;
 	private JFrame frameFilter;
 	private JFrame frameSearch;

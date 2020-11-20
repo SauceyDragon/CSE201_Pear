@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project name="CSE201_Pear">
-	
+		
 	<!--Cleans the directory structure -->
-	<target name="clean">
+	<target name="clean" description="Cleans directories">
 		<delete dir="bin" />
 		<delete dir="dist" />
 		<delete dir="test" />
@@ -10,7 +10,7 @@
 	</target>
 	
 	<!--Builds destination directories before compiling the classes -->
-	 <target name="init" depends="clean">
+	 <target name="init" depends="clean" description="Builds destination directories">
 	 	<echo message="${ant.project.name}: ${ant.file}"/>
 	 	<mkdir dir="bin/main" />
 	 	<mkdir dir="dist" />
@@ -25,9 +25,25 @@
 	  </target>
 	
 	<!--Builds a JAR package for developer use; contains all compiled classes-->
-	 <target name="package" depends="compile" description="Generates the JAR file">                                                
-	    <jar destfile="dist/CSE201_Pear.jar" basedir="bin"/>
+	 <target name="package" depends="compile" description="Generates the JAR file">
+	    <jar destfile="dist/CSE201_Pear.jar" basedir="bin">
+	    	<manifest>
+	    		<section name="main/PearWindow.class">
+	    		    <attribute name="Sealed" value="false"/>
+	   			</section>
+	    	</manifest>
+	    </jar>
 	 	<echo message="${ant.project.name}: JAR file generated"/>
 	  </target>
+	
+	<!-- Runs the program -->
+	<target name="run" depends="package" description="Runs the program">
+		<echo message="${ant.project.name}: Running program"/>
+		<java sourcefile="main.PearWindow" fork="true">
+			<classpath>
+				<pathelement path="bin"/>
+			</classpath>
+		</java>
+	</target>
 	
 </project>
