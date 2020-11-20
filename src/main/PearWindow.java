@@ -31,7 +31,7 @@ public class PearWindow {
 	private JFrame frame;
 	private JFrame frameView;
 	private JFrame frameSortZA;
-	public JFrame frameLog;
+	private JFrame frameLog;
 	private JFrame frameSortAZ;
 	private JFrame frameFilter;
 	private JFrame frameSearch;
@@ -661,7 +661,7 @@ public class PearWindow {
 		txtEnterName.setText("Enter Name");
 		txtEnterName.setColumns(10);
 		txtEnterName.setBounds(346, 16, 141, 26);
-		frame.getContentPane().add(txtEnterName);
+		frameSearch.getContentPane().add(txtEnterName);
 		
 		JButton btnNewButton_7 = new JButton("Search");
 		btnNewButton_7.addActionListener(new ActionListener() {
@@ -674,7 +674,7 @@ public class PearWindow {
 			}
 		});
 		btnNewButton_7.setBounds(485, 16, 117, 29);
-		frame.getContentPane().add(btnNewButton_7);
+		frameSearch.getContentPane().add(btnNewButton_7);
 		
 		if(u.ID == 3) {
 			JButton btnNewButton_8 = new JButton("Requests");
@@ -911,7 +911,7 @@ public class PearWindow {
 			frameFilter.getContentPane().add(btnNewButton_8);
 		}
 			
-		else {
+		else if(u.ID != 0)  {
 			JButton btnNewButton_8 = new JButton("Make Requests");
 			btnNewButton_8.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -1116,7 +1116,7 @@ public class PearWindow {
 			frameSortAZ.getContentPane().add(btnNewButton_8);
 		}
 			
-		else {
+		else if(u.ID != 0)  {
 			JButton btnNewButton_8 = new JButton("Make Requests");
 			btnNewButton_8.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -1322,7 +1322,7 @@ public class PearWindow {
 			frameSortZA.getContentPane().add(btnNewButton_8);
 		}
 			
-		else {
+		else if(u.ID != 0)  {
 			JButton btnNewButton_8 = new JButton("Make Requests");
 			btnNewButton_8.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -1751,7 +1751,7 @@ public class PearWindow {
 			frame.getContentPane().add(btnNewButton_8);
 		}
 			
-		else {
+		else if(u.ID != 0)  {
 			JButton btnNewButton_8 = new JButton("Make Requests");
 			btnNewButton_8.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
