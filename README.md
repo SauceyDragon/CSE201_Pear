@@ -75,23 +75,3 @@ To add dependencies with ANT:
 ```
 To conduct tests, adding JUnit to your corresponding classpath allows for testing. A test directory is created to store tester classes. Adding a JUnit JAR file as a dependency inside the package target would allow for JUnit tests to be run. Otherwise, you can just add it to you current classpath in your IDE (Select the project > Configure Build Path > Add Library > JUnit4 (or 5) .
 
-One can currently run the main driver (PearWindow, which is shown below and should be run), which creates a separate instance of the running software that can then be used to view applications, filter, sort, and use several other functionalities. 
-
-```java
-public static void main(String[] args) {
-		Store pear = new Store();
-    
-   
-    
-    EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					window = new PearWindow(pear, pear.appList);
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-}
-```
