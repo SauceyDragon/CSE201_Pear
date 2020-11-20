@@ -4,7 +4,13 @@
 
 This GitHub repository is an in-progress application Repository showing a filterable and sortable library of applications based on different criteria - built fully in Java. Users can create accounts and login to them, view discussion boards on mobile and desktop applications, post comments, and compare through different platforms. Different filters and views can be used to aggregate different application information.
 
-On the front page, a user can either continue as a guest, which would allow for basic functionalities. However, if they create an account and login, they can access other features. A user can then sort from A-Z or Z-A by setting such option and then clicking Sort. They can also filter by setting a price at the left input field. Clicking on LogOut sends a user back to the home screen.
+On the front page, a user can either continue as a guest, which would allow for basic functionalities. However, if they create an account and login, they can access other features. 
+
+![image info](./img/frontend.jpg)
+
+A user can then sort from A-Z or Z-A by setting such option and then clicking Sort. They can also filter by setting a price at the left input field. Clicking on LogOut sends a user back to the home screen.
+
+![image info](./img/mainGUI.jpg)
 
 ## Developer Documentation
 
