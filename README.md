@@ -13,8 +13,9 @@ After cloning the repository, running the ANT build script should automatically 
 - Cleaning the file directory fixes any classpath issues
 - A new directory structure is added for future testing and for packaging all of the software resources pre-compilation
 - Compilation and packaging of the corresponding JAR files is followed therafter
+- Running the program driver
 
-It is important to note that you must run the **run** target first so that all the steps can be properly follow. You could run each target individually as well.
+It is important to note that you must run the **run** target first so that all the steps can be properly followed. You could run each target individually as well.
 
 ```xml
 	<!--Cleans the directory structure -->
@@ -72,7 +73,7 @@ To add dependencies with ANT:
     <echo message="${ant.project.name}: JAR file generated"/>
 </target>
 ```
-To conduct tests, adding JUnit to your corresponding classpath allows for testing. A test directory is created to store tester classes. Adding a JUnit JAR file as a dependency inside the package target would allow for JUnit tests to be run. Otherwise, you can just add it to you current classpath in your IDE.
+To conduct tests, adding JUnit to your corresponding classpath allows for testing. A test directory is created to store tester classes. Adding a JUnit JAR file as a dependency inside the package target would allow for JUnit tests to be run. Otherwise, you can just add it to you current classpath in your IDE (Select the project > Configure Build Path > Add Library > JUnit4 (or 5) .
 
 One can currently run the main driver (PearWindow, which is shown below and should be run), which creates a separate instance of the running software that can then be used to view applications, filter, sort, and use several other functionalities. 
 
