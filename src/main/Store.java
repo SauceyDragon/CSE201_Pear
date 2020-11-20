@@ -1,17 +1,26 @@
 package main;
+
 import java.util.*;
 
 public class Store {
 	// List of Users
-	public HashMap<String, String> userMap;
+	public HashMap<String, User> userMap;
 	// ArrayList of Applications
 	public ArrayList<Application> appList;
+	public ArrayList<Application> reqList;
 	public ArrayList<Application> temp;
 	
-	public Store() {
+	public Store(){
 		appList = new ArrayList<Application>();
-		userMap = new HashMap<String, String>();
+		reqList = new ArrayList<Application>();
+		userMap = new HashMap<String, User>();
 		temp = new ArrayList<Application>();
+		User ard = new User("Saucey", "Dragon", 3);
+		User not = new User("", "", -1);
+		User invaild = new User("Invaild", "Invaild", -1);
+		userMap.put("Saucey?Dragon", ard);
+		userMap.put("?", not);
+		userMap.put("Invaild?Invaild", invaild);
 	}
 
 	public boolean view(Application a) {
@@ -56,6 +65,21 @@ public class Store {
 				temp.add(appList.get(i));
 		}
 	}
+	public boolean search(String s) {
+		for(int i = 0; i < appList.size(); i++) {
+			if(appList.get(i).getName().equals(s))
+				return true;
+		}
+		return false;
+	}
+	public int searchGetI(String s) {
+		for(int i = 0; i < appList.size(); i++) {
+			if(appList.get(i).getName().equals(s))
+				return i;
+		}
+		return -1;
+	}
+	
 	
 
 	
