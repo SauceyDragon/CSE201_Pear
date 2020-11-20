@@ -1,6 +1,10 @@
 # CSE201_Pear
 
+### User Documentation
+
 This GitHub repository is an in-progress application Repository showing a filterable and sortable library of applications based on different criteria - built fully in Java. Users can create accounts and login to them, view discussion boards on mobile and desktop applications, post comments, and compare through different platforms. Different filters and views can be used to aggregate different application information.
+
+On the front page, a user can either continue as a guest, which would allow for basic functionalities. However, if they create an account and login, they can access other features. A user can then sort from A-Z or Z-A by setting such option and then clicking Sort. They can also filter by setting a price at the left input field. Clicking on LogOut sends a user back to the home screen.
 
 ## Developer Documentation
 
@@ -10,15 +14,19 @@ After cloning the repository, running the ANT build script should automatically 
 - A new directory structure is added for future testing and for packaging all of the software resources pre-compilation
 - Compilation and packaging of the corresponding JAR files is followed therafter
 
+It is important to note that you must run the **run** target first so that all the steps can be properly follow. You could run each target individually as well.
+
 ```xml
-	<target name="clean">
+	<!--Cleans the directory structure -->
+	<target name="clean" description="Cleans directories">
 		<delete dir="bin" />
 		<delete dir="dist" />
 		<delete dir="test" />
 		<echo message="${ant.project.name}: Directory structure cleaned" />
 	</target>
 	
-	 <target name="init" depends="clean">
+	<!--Builds destination directories before compiling the classes -->
+	 <target name="init" depends="clean" description="Builds destination directories">
 	 	<echo message="${ant.project.name}: ${ant.file}"/>
 	 	<mkdir dir="bin/main" />
 	 	<mkdir dir="dist" />
@@ -26,11 +34,33 @@ After cloning the repository, running the ANT build script should automatically 
 	 	<echo message="${ant.project.name}: Directory structure added" />
 	  </target>
 		
+	<!--Compiles the main package of core Java classes-->
 	  <target name="compile" depends="init" description="Compile Java code">
 	    <javac srcdir="src/main" destdir="bin" includeantruntime="false" />
-		  //JUnit compilation can be added here or in another target
 	  	<echo message="${ant.project.name}: Compilation completed"/>
 	  </target>
+	
+	<!--Builds a JAR package for developer use; contains all compiled classes-->
+	 <target name="package" depends="compile" description="Generates the JAR file">
+	    <jar destfile="dist/CSE201_Pear.jar" basedir="bin">
+	    	<manifest>
+	    		<section name="main/PearWindow.class">
+	    		    <attribute name="Sealed" value="false"/>
+	   			</section>
+	    	</manifest>
+	    </jar>
+	 	<echo message="${ant.project.name}: JAR file generated"/>
+	  </target>
+	
+	<!-- Runs the program -->
+	<target name="run" depends="package" description="Runs the program">
+		<echo message="${ant.project.name}: Running program"/>
+		<java sourcefile="main.PearWindow" fork="true">
+			<classpath>
+				<pathelement path="bin"/>
+			</classpath>
+		</java>
+	</target>
 ```
 
 To add dependencies with ANT:
@@ -50,7 +80,7 @@ One can currently run the main driver (PearWindow, which is shown below and shou
 public static void main(String[] args) {
 		Store pear = new Store();
     
-    \\Application List load
+   
     
     EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -64,6 +94,3 @@ public static void main(String[] args) {
 		});
 }
 ```
-### User Documentation
-
-
