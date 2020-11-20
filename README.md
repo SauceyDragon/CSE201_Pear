@@ -81,3 +81,5 @@ To add dependencies with ANT:
 ```
 To conduct tests, adding JUnit to your corresponding classpath allows for testing. A test directory is created to store tester classes. Adding a JUnit JAR file as a dependency inside the package target would allow for JUnit tests to be run. Otherwise, you can just add it to you current classpath in your IDE (Select the project > Configure Build Path > Add Library > JUnit4 (or 5) .
 
+## Project Features
+Our Trello board can be found [here](https://trello.com/b/LYVkS7HJ/pear), alongside project reports and other links.
